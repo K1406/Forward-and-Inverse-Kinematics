@@ -1,0 +1,22 @@
+syms theta1;
+syms theta2;
+syms theta3;
+syms theta4;
+syms theta5;
+syms theta6;
+T10=[cos(90+theta1),-sin(90+theta1)*cos(90),sin(90+theta1)*sin(90),3*cos(90+theta1);sin(90+theta1),cos(90+theta1)*cosd(90),-cos(90+theta1)*sin(90),3*sin(90+theta1);0,sin(90),cos(90),0;0,0,0,1];
+T21=[cos(90+theta2),-sin(90+theta2)*cos(0),sin(90+theta2)*sin(0),0*cos(90+theta2);sin(90+theta2),cos(90+theta2)*cosd(0),-cos(90+theta2)*sin(0),0*sin(90+theta2);0,sin(0),cos(0),300;0,0,0,1];
+T32=[cos(180+theta3),-sin(180+theta3)*cos(90),sin(180+theta3)*sin(90),0*cos(180+theta3);sin(180+theta3),cos(180+theta3)*cos(90),-cos(180+theta3)*sin(90),0*sin(180+theta3);0,sin(90),cos(90),0;0,0,0,1];
+T43=[cos(-180+theta4),-sin(-180+theta4)*cos(90),sin(-180+theta4)*sin(90),-4*cos(-180+theta4);sin(-180+theta4),cos(-180+theta4)*cos(90),-cos(-180+theta4)*sin(90),-4*sin(-180+theta4);0,sin(90),cos(90),0;0,0,0,1];
+T54=[cos(-90+theta5),-sin(-90+theta5)*cos(90),sin(-90+theta5)*sin(90),0*cos(-90+theta5);sin(-90+theta5),cos(-90+theta5)*cos(90),-cos(-90+theta5)*sin(90),0*sin(-90+theta5);0,sind(90),cos(90),0;0,0,0,1];
+T65=[cos(-140+theta6),-sin(-140+theta6)*cos(0),sin(-140+theta6)*sin(0),63*cos(-140+theta6);sin(-140+theta6),cos(140+theta6)*cos(0),-cos(-140+theta6)*sin(0),63*sin(-140+theta6);0,sin(0),cos(0),0;0,0,0,1];
+T20=T10*T21;
+T30=T10*T21*T32;
+T40=T10*T21*T32*T43;
+T50=T10*T21*T32*T43*T54;
+T60=T10*T21*T32*T43*T54*T65;
+X=T60(1,4);
+Y=T60(2,4);
+Z=T60(3,4);
+J=jacobian([X,Y,Z],[theta1,theta2,theta3,theta4,theta5,theta6]);
+matlabFunction(J,'File','MTAB_Aristo_Jacobian')
