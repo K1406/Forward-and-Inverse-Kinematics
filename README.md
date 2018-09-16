@@ -1,1 +1,1 @@
-# Forwars-and-Inverse-Kinematics
+# Forward-and-Inverse-Kinematics
